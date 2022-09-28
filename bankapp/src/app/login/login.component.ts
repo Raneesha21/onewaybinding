@@ -24,36 +24,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  login() {
-    var acnoo = this.acno
-    var psww= this.psw
-    let userDetails = this.userDetails
-    if (acnoo in userDetails) {
-      if (psww == userDetails[acnoo]['password']) {
-        alert('login successfull')
-        // redirection
-        this.router.navigateByUrl('dashboard')
-      }
-      else {
-        alert('incorrect psw')
-      }
-    }
-    else {
-      alert('incorrect ac no or not exist')
-    }
-  }
-  // login(a:any,b:any) {
-
-  //   console.log(a.value);
-  //   console.log(b.value);
-    
-    
-  //   var acno = a.value
-  //   var psw= b.value
+  // login() {
+  //   var acnoo = this.acno
+  //   var psww= this.psw
   //   let userDetails = this.userDetails
-  //   if (acno in userDetails) {
-  //     if (psw == userDetails[acno]['password']) {
+  //   if (acnoo in userDetails) {
+  //     if (psww == userDetails[acnoo]['password']) {
   //       alert('login successfull')
+  //       // redirection
+  //       this.router.navigateByUrl('dashboard')
   //     }
   //     else {
   //       alert('incorrect psw')
@@ -63,18 +42,37 @@ export class LoginComponent implements OnInit {
   //     alert('incorrect ac no or not exist')
   //   }
   // }
+ login(a:any,b:any) {
 
+  console.log(a.value);
+  console.log(b.value);
+    
+    
+   var acno = a.value 
+    var psw= b.value
+ let userDetails = this.userDetails
+ if (acno in userDetails) {
+     if (psw == userDetails[acno]['password']) {
+       alert('login successfull')
+    }
+    else {
+     alert('incorrect psw')
+    }
+   }
+   else {
+    alert('incorrect ac no or not exist')
+   }
+ }
 
+ acnoChange(event: any) {
+  this.acno = (event.target.value)
+   console.log(this.acno);
 
-  // acnoChange(event: any) {
-  //   this.acno = (event.target.value)
-  //   console.log(this.acno);
+ }
+ pswChange(event: any) {
+  this.psw = (event.target.value)
+  console.log(this.psw);
 
-  // }
-  // pswChange(event: any) {
-  //   this.psw = (event.target.value)
-  //   console.log(this.psw);
+ }
 
-  // }
-
-}
+ }
